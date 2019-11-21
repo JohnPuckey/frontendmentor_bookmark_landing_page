@@ -1,4 +1,34 @@
 
+// menu toggle
+
+const menuBtn = document.querySelector('.toggle-btn');
+const menuBtnImg = document.querySelector('.hamburger')
+const logo = document.querySelector('.logo');
+const navMenu = document.querySelector('nav');
+
+let showMenu = false
+
+menuBtn.addEventListener('click', toggleMenu);
+
+function toggleMenu() {
+    if(!showMenu) {
+        navMenu.classList.add('show')
+        logo.classList.add('toggle')
+        menuBtnImg.src = "images/icon-close.svg"
+
+        showMenu = true;
+    } else {
+        navMenu.classList.remove('show')
+        logo.classList.remove('toggle')
+        menuBtnImg.src = "images/icon-hamburger.svg"
+
+
+        showMenu = false;
+
+    }
+}
+
+
 // feature tabs
 
 function openTab(evt, tabName) {
@@ -6,23 +36,25 @@ function openTab(evt, tabName) {
     //declare variables
     var i, tabcontent, tablinks
 
-    // get all elements
+    // get all elements and clear tabcontent
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none"
     }
 
-    tablinks = document.getElementsByClassName("tablinks");
+    // get all tablink and remove active
+    tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].classList.remove('active')
+        
     }
 
+    // show current tabcontent add active to current 
     document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    evt.currentTarget.classList.add('active');
 }
 
 document.getElementById("defaultOpen").click();
-
 
 
 // collapsible buttons
@@ -42,3 +74,30 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
+// email validation
+
+function emailIsValid(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) // check email value against regex
+}
+
+function Validate() {
+    var error = document.getElementById("error-msg")
+    var email = document.getElementById("email")
+    error.innerHTML = ""
+
+    if (emailIsValid(email.value)) {
+        error.innerHTML = ""
+        document.getElementById("error-msg").style.display = "none"
+        document.getElementById("email").classList.remove("error")
+        document.getElementById("submit-btn").classList.remove("error-btn")
+        //return true
+        email.value = ""
+    } else {
+        error.innerHTML = " Whoops, make sure it's an email"
+        document.getElementById("error-msg").style.display = "block"
+        document.getElementById("email").classList.add("error")
+        document.getElementById("submit-btn").classList.add("error-btn")
+    }
+    return false
+
+}

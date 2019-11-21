@@ -113,7 +113,8 @@ header {
         top: 0px;
         width: 100vw;
         height: 100vh;
-        background: rgba( color(neutral-darkblue), .9 );
+        min-height: 550px;
+        background: rgba( color(neutral-darkblue), .95 );
         display: none;
 
         .nav-links {
@@ -124,7 +125,8 @@ header {
             flex-direction: column;
 
             .link {
-                width: 310px;
+                width: 100%;
+                max-width: 310px;
                 padding: 25px 0;
                 text-transform: uppercase;
                 letter-spacing: 2px;
@@ -146,16 +148,15 @@ header {
             }
 
             .login {
-                width: 310px;
                 list-style: none;
-                margin: 30px 30px;
+                margin: 30px 0px;
                 text-transform: uppercase;
 
 
                 a {
                     border: 2px solid #fff;
                     border-radius: 5px;
-                    padding: 10px 130px;
+                    padding: 10px 129px;
                     color: #fff;
                 }
 
@@ -170,13 +171,13 @@ header {
 
         .nav-social-links{
             position: absolute;
+            
             bottom: 50px;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             
-
 
                 a {
                     margin: 0 20px;
@@ -193,6 +194,10 @@ header {
     };
 
 
+}
+
+.show {
+    display: block;
 }
 
 /* hero section */
@@ -262,6 +267,7 @@ header {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
+
 }
 
 .features-head {
@@ -274,11 +280,21 @@ header {
     }
 }
 
+.tabs {
+    
+
+}
+
 .tabcontent {
     margin: 50px 0;
 }
 
+.tab-links {
+    margin: 0 30px;
+}
+
 .tablink {
+    position: relative;
     width: 100%;
     padding: 20px 0;
     border: none;
@@ -289,6 +305,22 @@ header {
 
 .tablink:nth-of-type(1) {
     border-top: 2px solid lighten(color(neutral-greyblue), 30%);
+}
+
+.highlight {
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    margin-left: -72px;
+    width: 144px;
+    height: 5px;
+    background-color: color(primary-red);
+    opacity: 0;
+    transition: opacity .6s ;
+}
+
+.active .highlight {
+    opacity: 1;
 }
 
 .tabcontent {
@@ -487,15 +519,49 @@ header {
     h2 {padding: 20px 30px 30px;}
 
     form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
         .email {
 
             height: 50px;
             width: 270px;
-            border: none;
+            border: 0px;
             border-radius: 5px;
             padding: 0px 20px ;
             font-size: .9rem;
         }
+
+        .error {
+            border: 2px solid color(primary-red);
+            z-index: 2;
+        }
+
+        #error-msg {
+            position: absolute;
+            width: 280px;
+            padding: 5px 17px;
+            background-color: color(primary-red);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            top: 50px;
+            z-index: 0;
+            display: none;
+
+            color: #fff;
+            font-style: italic;
+            text-align: left;
+            font-size: .8rem;
+           
+        }
+
+        #error-symbol {
+ 
+        }
+
+
 
         .submit-btn {
             height: 50px;
@@ -518,6 +584,12 @@ header {
         ::placeholder {
             opacity: .4;
         }
+
+        .error-btn {
+            margin-top: 40px;
+        }
+
+    
     }
 }
 
