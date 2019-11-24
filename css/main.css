@@ -286,6 +286,17 @@ header nav .nav-social-links a:hover .icon-color {
   -ms-grid-row-span: 1;
   grid-row: 2 / 3;
   margin-top: 50px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .hero .hero-content h1 {
@@ -293,8 +304,9 @@ header nav .nav-social-links a:hover .icon-color {
 }
 
 .hero .hero-content p {
+  max-width: 280px;
   margin-bottom: 35px;
-  padding: 0 40px;
+  padding: 0 0px;
 }
 
 .hero .hero-content .hero-buttons {
@@ -326,7 +338,7 @@ header nav .nav-social-links a:hover .icon-color {
 
 .features-head {
   margin: 0px 40px 40px;
-  max-width: 540px;
+  max-width: 425px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -667,6 +679,13 @@ form .form-input .error {
   z-index: 2;
 }
 
+form .form-input #error-icon {
+  position: absolute;
+  top: 13px;
+  right: 20px;
+  display: none;
+}
+
 form .form-input #error-msg {
   position: absolute;
   width: 280px;
@@ -757,10 +776,85 @@ form .form-submit .error-btn {
 }
 
 /* media queries */
-/* mobile */
 /* tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* hero-section - tablets */
+  .hero .hero-image {
+    padding: 0 100px 0 100px;
+  }
+  .hero .hero-bg-image .bg-shape {
+    width: 60%;
+    height: 85%;
+  }
+  .hero .hero-content {
+    margin-top: 50px;
+  }
+  .hero .hero-content h1 {
+    margin-bottom: 25px;
+  }
+  .hero .hero-content p {
+    max-width: 280px;
+    margin-bottom: 35px;
+    padding: 0 0px;
+  }
+  /* Features-section - tablets */
+  .tabcontent {
+    display: none;
+  }
+  .tabcontent .grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .tabcontent .tab-image {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / 2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1 / 2;
+    padding: 0px 100px 32px;
+  }
+  .tabcontent .bg-image .bg-shape {
+    width: 70%;
+    height: 75%;
+  }
+  /* bottom-section - tablets */
+  .bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .bottom .logo-bottom {
+    padding-left: 50px;
+    padding-right: 30px;
+  }
+  .bottom .bottom-links {
+    padding-top: 0px;
+  }
+  .bottom .bottom-links .bottom-link {
+    display: inline;
+    padding-right: 20px;
+  }
+  .bottom .social-links {
+    margin-left: auto;
+    margin-right: 50px;
+  }
+  .bottom .social-links a {
+    margin: 0px 0px 0px 30px;
+  }
+}
+
 /* desktops and laptops */
 @media screen and (min-width: 992px) {
+  /* header-section - desktop and laptops */
   header {
     padding: 45px 0;
   }
@@ -827,6 +921,7 @@ form .form-submit .error-btn {
   header nav .nav-social-links {
     display: none;
   }
+  /* hero-section - desktop and laptops */
   .hero {
     margin-top: 80px;
   }
@@ -882,6 +977,9 @@ form .form-submit .error-btn {
     margin-left: 100px;
     margin-bottom: 60px;
     text-align: left;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
   .hero .hero-content h1 {
     max-width: 550px;
@@ -900,9 +998,11 @@ form .form-submit .error-btn {
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
-  .hero .hero-content .hero-buttons .btn-blue, .hero .hero-content .hero-buttons .btn-grey {
+  .hero .hero-content .hero-buttons .btn-blue,
+  .hero .hero-content .hero-buttons .btn-grey {
     margin: 0 15px 0 0;
   }
+  /* features-section - desktop and laptops */
   .features-head {
     max-width: 480px;
   }
@@ -989,6 +1089,7 @@ form .form-submit .error-btn {
   .tabcontent .tab-text a {
     visibility: visible;
   }
+  /* download-section - desktop and laptops */
   .download {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1036,6 +1137,7 @@ form .form-submit .error-btn {
   .card:nth-of-type(3) {
     margin-top: 160px;
   }
+  /* faq-section - desktop and laptops */
   .faq {
     padding: 120px 30px;
     display: -webkit-box;
@@ -1075,6 +1177,7 @@ form .form-submit .error-btn {
     font-size: 1rem;
     line-height: 1.9rem;
   }
+  /* newsletter-section - desktop and laptops */
   .newsletter .container .newsletter-head {
     max-width: 440px;
   }
@@ -1098,6 +1201,7 @@ form .form-submit .error-btn {
     width: 130px;
     margin-top: 0px;
   }
+  /* bottom-section - desktop and laptops */
   .bottom {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1131,6 +1235,7 @@ form .form-submit .error-btn {
 
 /* large screens */
 @media screen and (min-width: 1240px) {
+  /* header-section - large screens */
   header .logo {
     margin-left: 170px;
   }
@@ -1140,6 +1245,7 @@ form .form-submit .error-btn {
   header nav .nav-links .login {
     margin: 0px 165px 0px 50px;
   }
+  /* hero-section - large screens */
   .hero {
     margin-top: 80px;
   }
@@ -1176,9 +1282,11 @@ form .form-submit .error-btn {
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
-  .hero .hero-content .hero-buttons .btn-blue, .hero .hero-content .hero-buttons .btn-grey {
+  .hero .hero-content .hero-buttons .btn-blue,
+  .hero .hero-content .hero-buttons .btn-grey {
     margin: 0 15px 0 0;
   }
+  /* features-section - large screens */
   .features-head {
     max-width: 530px;
   }
@@ -1226,6 +1334,7 @@ form .form-submit .error-btn {
     padding: 20px 0px 0px;
     margin-bottom: 40px;
   }
+  /* download-section - large screens */
   .download-head {
     margin: 150px 40px 0px;
     max-width: 540px;
@@ -1237,6 +1346,7 @@ form .form-submit .error-btn {
   .download-head p {
     font-size: 1.1rem;
   }
+  /* faq-section - large screens */
   .faq {
     padding: 120px 30px;
   }
@@ -1253,6 +1363,7 @@ form .form-submit .error-btn {
   .collapsible {
     font-size: 1.1rem;
   }
+  /* bottom-section - large screens */
   .bottom .logo-bottom {
     padding-left: 160px;
     padding-right: 60px;

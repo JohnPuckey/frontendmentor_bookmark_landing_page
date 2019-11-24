@@ -218,12 +218,7 @@ header {
 
         }
 
-
-
     }
-
-    ;
-
 
 }
 
@@ -268,6 +263,10 @@ header {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
         margin-top: 50px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         h1 {
             margin-bottom: 25px;
@@ -275,8 +274,9 @@ header {
         }
 
         p {
+            max-width: 280px;
             margin-bottom: 35px;
-            padding: 0 40px;
+            padding: 0 0px;
         }
 
         .hero-buttons {
@@ -304,7 +304,7 @@ header {
 
 .features-head {
     margin: 0px 40px 40px;
-    max-width: 540px;
+    max-width: 425px;
     align-self: center;
 
     h2 {
@@ -543,8 +543,6 @@ header {
     max-height: 0;
 }
 
-
-
 /* newsletter section */
 
 .newsletter {
@@ -574,7 +572,6 @@ header {
 
 form {
 
-
     .form-input {
         position: relative;
         text-align: center;
@@ -592,6 +589,13 @@ form {
         .error {
             border: 2px solid color(primary-red);
             z-index: 2;
+        }
+
+        #error-icon {
+            position: absolute;
+            top: 13px;
+            right: 20px;
+            display: none;
         }
 
         #error-msg {
@@ -643,7 +647,6 @@ form {
 
     }
 }
-
 
 /* bottom section */
 

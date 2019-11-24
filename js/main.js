@@ -6,28 +6,27 @@ const menuBtnImg = document.querySelector('.hamburger')
 const logo = document.querySelector('.logo');
 const navMenu = document.querySelector('nav');
 
-let showMenu = false
+let showMenu = false // set initial state of showMenu
 
-menuBtn.addEventListener('click', toggleMenu);
+menuBtn.addEventListener('click', toggleMenu); // on click run toggleMenu
 
 function toggleMenu() {
     if(!showMenu) {
+        // if showMenu is false 
         navMenu.classList.add('show')
         logo.classList.add('toggle')
         menuBtnImg.src = "images/icon-close.svg"
 
-        showMenu = true;
+        showMenu = true; //set showMenu as true
     } else {
         navMenu.classList.remove('show')
         logo.classList.remove('toggle')
         menuBtnImg.src = "images/icon-hamburger.svg"
 
-
-        showMenu = false;
+        showMenu = false; //set showMenu as false
 
     }
 }
-
 
 // feature tabs
 
@@ -88,13 +87,15 @@ function Validate() {
     if (emailIsValid(email.value)) {
         error.innerHTML = ""
         document.getElementById("error-msg").style.display = "none"
+        document.getElementById("error-icon").style.display = "none"
         document.getElementById("email").classList.remove("error")
         document.getElementById("submit-btn").classList.remove("error-btn")
         //return true
         email.value = ""
     } else {
-        error.innerHTML = " Whoops, make sure it's an email"
+        error.innerHTML = "Whoops, make sure it's an email"
         document.getElementById("error-msg").style.display = "block"
+        document.getElementById("error-icon").style.display = "block"
         document.getElementById("email").classList.add("error")
         document.getElementById("submit-btn").classList.add("error-btn")
     }
